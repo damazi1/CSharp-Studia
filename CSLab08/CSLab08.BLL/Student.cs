@@ -10,12 +10,16 @@ namespace CSLab08.BLL
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int StudentNo { get; set; }
+        public string Faculty { get; set; }
 
         public Student() { }
-        public Student(string firstName, string lastName)
+        public Student(string firstName, string lastName, int studentNo, string faculty)
         {
             FirstName = firstName;
             LastName = lastName;
+            StudentNo = studentNo;
+            Faculty = faculty;
         }
     }
 }
