@@ -11,7 +11,11 @@ namespace CSLab08.BLL
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int StudentNo { get; set; }
+<<<<<<< HEAD
         public string Faculty {  get; set; }
+=======
+        public string Faculty { get; set; }
+>>>>>>> Lab08_NiegotowyProjekt
 
         public Student() { }
         public Student(string firstName, string lastName, int studentNo, string faculty)

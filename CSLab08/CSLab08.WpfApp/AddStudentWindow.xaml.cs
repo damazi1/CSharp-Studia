@@ -37,10 +37,17 @@ namespace CSLab08.WpfApp
 
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             if (!Regex.IsMatch(input:TextBoxFirstName.Text, pattern:@"^\p{L}{1,12}$") ||
                 !Regex.IsMatch(input: TextBoxLastName.Text, pattern: @"^\p{L}{1,12}$") ||
                 !Regex.IsMatch(input: TextBoxFaculty.Text, pattern: @"^\p{L}{1,12}$") ||
                 !Regex.IsMatch(input: TextBoxStudentNo.Text, pattern: @"^[0-9]{4,10}$") )
+=======
+            if (!Regex.IsMatch(input: TextBoxFirstName.Text, pattern: @"^\p{L}{1,12}$") ||
+                !Regex.IsMatch(input: TextBoxLastName.Text, pattern: @"^\p{L}{1,12}$") ||
+                !Regex.IsMatch(input: TextBoxFaculty.Text, pattern: @"^\p{L}{1,12}$") ||
+                !Regex.IsMatch(input: TextBoxStudentNo.Text, pattern: @"^[0-9]{4,10}$"))
+>>>>>>> Lab08_NiegotowyProjekt
             {
                 MessageBox.Show(messageBoxText: "Invalid input data");
                 return;
