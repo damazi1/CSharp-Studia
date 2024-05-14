@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="_AddStudent" Content="Add Student" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Click="_AddStudent_Click"/>
         <Button x:Name="_RemoveStudent" Content="Delete Student" HorizontalAlignment="Left" Height="Auto" Margin="170,0,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="_RemoveStudent_Click"/>
-        <Button Content="Edit Students greads" HorizontalAlignment="Left" Height="Auto" Margin="340,0,0,0" VerticalAlignment="Top" Width="150" Grid.Column="3"/>
+        <Button x:Name="_AddGrade" Content="Add Students greads" HorizontalAlignment="Left" Height="Auto" Margin="340,0,0,0" VerticalAlignment="Top" Width="150" Grid.Column="3" Click="_AddGrade_Click"/>
         <DataGrid Name="DataGridStudents" Grid.Row="1" HorizontalAlignment="Center" Height="350" VerticalAlignment="Center" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
     </Grid>

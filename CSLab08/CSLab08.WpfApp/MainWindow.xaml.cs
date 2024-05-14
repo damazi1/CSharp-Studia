@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,7 +24,8 @@ namespace CSLab08.WpfApp
             InitializeComponent();
             Students = new List<Student>
             {
-                new Student(){FirstName = "Jan", LastName="Kowalski", Faculty="WIMII", StudentNo=1010},
+                new Student(){FirstName = "Jan", LastName="Kowalski", Faculty="WIMII", StudentNo=1010,
+                    Grades = new List<Grade>{ new Grade() { Name = "PO", _Grade = 4.0 }, new Grade("IO", 3.5) } },
                 new Student(){FirstName= "Michal", LastName="Nowak", Faculty="WIMII", StudentNo=1011},
                 new Student(){FirstName= "Jacek", LastName="Makieta", Faculty="WIMII", StudentNo=1012},
             };
@@ -31,8 +33,11 @@ namespace CSLab08.WpfApp
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Last Name", Binding = new Binding(path: "LastName") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Faculty", Binding = new Binding(path: "Faculty") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Student No.", Binding = new Binding(path: "StudentNo") });
+            DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Grade", Binding = new Binding(path: "Grades") { Converter = new GradeConverter() } });
+
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
+            DataGridStudents.IsReadOnly = true;
         }
 
         private void _AddStudent_Click(object sender, RoutedEventArgs e)
@@ -52,6 +57,20 @@ namespace CSLab08.WpfApp
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
             }
+        }
+
+        private void _AddGrade_Click(object sender, RoutedEventArgs e)
+        {
+           EditStudentGrade win1 = new EditStudentGrade();
+            if (DataGridStudents.SelectedItem is Student gradeToAdd)
+            {
+                if (win1.ShowDialog() == true)
+                {
+                    gradeToAdd.Grades.Add(win1.Grade);
+                    DataGridStudents.Items.Refresh();
+                }
+            }
+            
         }
     }
 }

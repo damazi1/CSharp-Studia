@@ -12,7 +12,7 @@ namespace CSLab08.BLL
         public string LastName { get; set; }
         public int StudentNo { get; set; }
         public string Faculty {  get; set; }
-
+        public IList<Grade> Grades { get; set; } = new List<Grade>();
         public Student() { }
         public Student(string firstName, string lastName, int studentNo, string faculty)
         {
