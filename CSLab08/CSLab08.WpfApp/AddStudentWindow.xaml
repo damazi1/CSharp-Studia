@@ -1,0 +1,32 @@
+﻿<Window x:Class="CSLab08.WpfApp.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSLab08.WpfApp"
+        mc:Ignorable="d"
+        Title="AddStudentWindow" Height="300" Width="260">
+    <Grid Margin="10,30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="First name:" Grid.Row="0" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label Content="Last name:" Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
+        <Label Content="Student no.:" Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
+        <Label Content="Faculty:" Grid.Row="3" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <TextBox Name="TextBoxFirstName" Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <TextBox Name="TextBoxLastName" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <TextBox Name="TextBoxStudentNo" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <TextBox Name="TextBoxFaculty" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <Button Name="ButtonAddStudent" Content="Add student" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="20" FontWeight="Bold" FontSize="20" Click="ButtonAddStudent_Click"/>
+
+    </Grid>
+</Window>
