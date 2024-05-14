@@ -32,21 +32,13 @@ namespace CSLab08.WpfApp
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Faculty", Binding = new Binding(path: "Faculty") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Student No.", Binding = new Binding(path: "StudentNo") });
             DataGridStudents.AutoGenerateColumns = false;
-<<<<<<< HEAD
-            DataGridStudents.ItemsSource= Students;
-=======
             DataGridStudents.ItemsSource = Students;
->>>>>>> Lab08_NiegotowyProjekt
         }
 
         private void _AddStudent_Click(object sender, RoutedEventArgs e)
         {
             AddStudentWindow win = new AddStudentWindow();
-<<<<<<< HEAD
-            if(win.ShowDialog() == true)
-=======
             if (win.ShowDialog() == true)
->>>>>>> Lab08_NiegotowyProjekt
             {
                 Students.Add(win.Student);
                 DataGridStudents.Items.Refresh();
@@ -55,11 +47,7 @@ namespace CSLab08.WpfApp
         }
         private void _RemoveStudent_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            if(DataGridStudents.SelectedItem is Student studentToRemove)
-=======
             if (DataGridStudents.SelectedItem is Student studentToRemove)
->>>>>>> Lab08_NiegotowyProjekt
             {
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
