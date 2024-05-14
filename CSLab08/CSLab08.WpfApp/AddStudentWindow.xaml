@@ -18,15 +18,15 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
-        <Label Content="First name:" Grid.Row="0" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" Height="27" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Last name:" Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" Height="27" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Student no.:" Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" Height="27" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Faculty:" Grid.Row="3" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" Height="27" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <TextBox Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ss" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
-        <TextBox Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ss" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
-        <TextBox Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ss" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
-        <TextBox Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ss" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
-        <Button Content="Add student" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="20" FontWeight="Bold" FontSize="20"/>
+        <Label Content="First name:" Grid.Row="0" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label Content="Last name:" Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
+        <Label Content="Student no.:" Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
+        <Label Content="Faculty:" Grid.Row="3" Grid.Column="0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <TextBox Name="TextBoxFirstName" Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <TextBox Name="TextBoxLastName" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <TextBox Name="TextBoxStudentNo" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <TextBox Name="TextBoxFaculty" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Bottom" Width="130"/>
+        <Button Name="ButtonAddStudent" Content="Add student" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="20" FontWeight="Bold" FontSize="20" Click="ButtonAddStudent_Click"/>
 
     </Grid>
 </Window>
