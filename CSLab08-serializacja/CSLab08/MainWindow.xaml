@@ -1,0 +1,31 @@
+﻿<Window x:Class="CSLab08.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSLab08.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="_AddStudent" Content="Add Student" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Click="_AddStudent_Click"/>
+        <Button x:Name="_RemoveStudent" Content="Delete Student" HorizontalAlignment="Left" Height="Auto" Margin="170,0,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="_RemoveStudent_Click"/>
+        <Button x:Name="_AddGrade" Content="Add Students greads" HorizontalAlignment="Left" Height="Auto" Margin="340,0,0,0" VerticalAlignment="Top" Width="150" Grid.Column="3" Click="_AddGrade_Click"/>
+        <DataGrid Name="DataGridStudents" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button Name="_SaveToFile" Content="Save to txt file" HorizontalAlignment="Left" Margin="514,0,0,0" VerticalAlignment="Top" Width="100" Click="_SaveToFile_Click"/>
+        <Button Name="_LoadFromFile" Content="Load from file" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="100" Click="_LoadFromFile_Click"/>
+        <Button Name="_SaveReflection" Content="Save Reflection" HorizontalAlignment="Left" Margin="514,32,0,0" VerticalAlignment="Top" Width="100" Click="_SaveReflection_Click"/>
+        <Button Name="_LoadReflection" Content="Load Reflection" HorizontalAlignment="Left" Margin="644,32,0,0" VerticalAlignment="Top" Width="100" Click="_LoadReflection_Click"/>
+        <Button Name="_SaveToXML" Content="Save to XML" HorizontalAlignment="Left" Margin="420,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="9.989,0.88" Click="_SaveToXML_Click"/>
+        <Button Name="_LoadFromXML" Content="Load From XML" HorizontalAlignment="Left" Margin="328,30,0,0" VerticalAlignment="Top" Click="_LoadFromXML_Click"/>
+        <Button Name="_SaveToJSON" Content="Save to JSON" HorizontalAlignment="Left" Margin="245,30,0,0" VerticalAlignment="Top" Click="_SaveToJSON_Click"/>
+        <Button Name="_LoadFromJSON" Content="Load from JSON" HorizontalAlignment="Left" Margin="150,30,0,0" VerticalAlignment="Top" Click="_LoadFromJSON_Click"/>
+
+    </Grid>
+</Window>
