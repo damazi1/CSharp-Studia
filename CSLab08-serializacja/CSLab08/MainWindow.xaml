@@ -21,7 +21,7 @@
         <Button Name="_SaveToFile" Content="Save to txt file" HorizontalAlignment="Left" Margin="514,0,0,0" VerticalAlignment="Top" Width="100" Click="_SaveToFile_Click"/>
         <Button Name="_LoadFromFile" Content="Load from file" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="100" Click="_LoadFromFile_Click"/>
         <Button Name="_SaveReflection" Content="Save Reflection" HorizontalAlignment="Left" Margin="514,32,0,0" VerticalAlignment="Top" Width="100" Click="_SaveReflection_Click"/>
-        <Button Name="_LoadReflection" Content="Load Reflection" HorizontalAlignment="Left" Margin="644,32,0,0" VerticalAlignment="Top" Width="100" Click="_LoadReflection_Click"/>
+        <Button Name="_LoadReflection" Content="Load Single Reflection" HorizontalAlignment="Left" Margin="619,32,0,0" VerticalAlignment="Top" Width="125" Click="_LoadReflection_Click"/>
         <Button Name="_SaveToXML" Content="Save to XML" HorizontalAlignment="Left" Margin="420,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="9.989,0.88" Click="_SaveToXML_Click"/>
         <Button Name="_LoadFromXML" Content="Load From XML" HorizontalAlignment="Left" Margin="328,30,0,0" VerticalAlignment="Top" Click="_LoadFromXML_Click"/>
         <Button Name="_SaveToJSON" Content="Save to JSON" HorizontalAlignment="Left" Margin="245,30,0,0" VerticalAlignment="Top" Click="_SaveToJSON_Click"/>

@@ -99,36 +99,71 @@ namespace CSLab08.WpfApp
             }
             
         }
+        private IEnumerator<Student> studentEnumerator;
         private async void _LoadReflection_Click(object sender, RoutedEventArgs e)
         {
-            using (var streamReader = new StreamReader("data1.txt"))
+
+            if (studentEnumerator == null)
             {
-                var deserializedStudent = await streamReader.Load<Student>();
-                Students.Add(deserializedStudent);
+                var openFileDialog = new OpenFileDialog
+                {
+                    Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                };
+
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    var streamReader = new StreamReader(openFileDialog.FileName);
+                    var streamEnumerable = new StreamEnumerable<Student>(streamReader);
+                    studentEnumerator = streamEnumerable.GetEnumerator();
+                }
             }
-            DataGridStudents.Items.Refresh();
+
+            if (studentEnumerator != null && studentEnumerator.MoveNext())
+            {
+                Students.Add(studentEnumerator.Current);
+                DataGridStudents.ItemsSource = null; // To trigger refresh
+                DataGridStudents.ItemsSource = Students;
+            }
+            else
+            {
+                MessageBox.Show("No more students to load.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                studentEnumerator?.Dispose();
+                studentEnumerator = null;
+            }
         }
         private void _SaveToXML_Click(object sender, RoutedEventArgs e)
         {
             var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.FileName = "students.xml";
-            using var fileStream = new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
-            var xmlSerializer = new XmlSerializer(typeof(List<Student>));
-            xmlSerializer.Serialize(fileStream, Students);
-
+            saveFileDialog.Filter = "XML files (*.xml)|*.xml";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using var fileStream = new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
+                var xmlSerializer = new XmlSerializer(typeof(List<Student>));
+                xmlSerializer.Serialize(fileStream, Students);
+            }
         }
 
-        private void _LoadFromXML_Click(object sender, RoutedEventArgs e)
+            private void _LoadFromXML_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = "students.xml";
-            using var fileStream = new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
-            var xmlSerializer = new XmlSerializer(typeof(List<Student>));
-            if (xmlSerializer.Deserialize(fileStream) is List<Student> students && students.Count > 0)
+            openFileDialog.Filter = "XML files (*.xml)|*.xml";
+            if (openFileDialog.ShowDialog() == true)
             {
-                Students = students;
-                DataGridStudents.ItemsSource = Students;
-                DataGridStudents.Items.Refresh();
+                try
+                {
+                    using var fileStream = new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
+                    var xmlSerializer = new XmlSerializer(typeof(List<Student>));
+                    if (xmlSerializer.Deserialize(fileStream) is List<Student> students && students.Count > 0)
+                    {
+                        Students = students;
+                        DataGridStudents.ItemsSource = Students;
+                        DataGridStudents.Items.Refresh();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error Loading XML file: {ex.Message}", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
         }
@@ -136,19 +171,32 @@ namespace CSLab08.WpfApp
         private void _SaveToJSON_Click(object sender, RoutedEventArgs e)
         {
             var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.FileName = "students.JSON";
-            string jsonStr = JsonSerializer.Serialize(Students, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(saveFileDialog.FileName, jsonStr);
+            saveFileDialog.Filter="JSON files (*.json)|*.json";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string jsonStr = JsonSerializer.Serialize(Students, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(saveFileDialog.FileName, jsonStr);
+            }
         }
 
-        private void _LoadFromJSON_Click(object sender, RoutedEventArgs e)
+        private async void _LoadFromJSON_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = "students.JSON";
-            string jsonStr = File.ReadAllText(openFileDialog.FileName);
-            Students = JsonSerializer.Deserialize<List<Student>>(jsonStr);
-            DataGridStudents.ItemsSource = Students;
-            DataGridStudents.Items.Refresh();
+            openFileDialog.Filter = "JSON files (*.json)|*.json";
+            if(openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    string jsonStr = await File.ReadAllTextAsync(openFileDialog.FileName);
+                    Students = JsonSerializer.Deserialize<List<Student>>(jsonStr);
+                    DataGridStudents.ItemsSource = Students;
+                    DataGridStudents.Items.Refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error Loading json file: {ex.Message}", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }
