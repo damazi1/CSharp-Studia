@@ -14,11 +14,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="_AddStudent" Content="Add Student" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Click="_AddStudent_Click"/>
+        <Button x:Name="_AddStudent" Content="Add Student" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Click="ButtonAddEditStudentWindowShow_Click"/>
         <Button x:Name="_RemoveStudent" Content="Delete Student" HorizontalAlignment="Left" Height="Auto" Margin="170,0,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="_RemoveStudent_Click"/>
         <Button x:Name="_AddGrade" Content="Add Students greads" HorizontalAlignment="Left" Height="Auto" Margin="340,0,0,0" VerticalAlignment="Top" Width="150" Grid.Column="3" Click="_AddGrade_Click"/>
         <DataGrid Name="DataGridStudents" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <DatePicker HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" Width="490"/>
+        <DatePicker Name="DatePickerFilterGrid" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" Width="490"/>
+        <TextBox Name ="_Grade" HorizontalAlignment="Left" Margin="524,2,0,0" TextWrapping="Wrap" Text="Wpisz Ocene" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name ="_Subject" HorizontalAlignment="Left" Margin="524,26,0,0" TextWrapping="Wrap" Text="Wpisz Przedmiot" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

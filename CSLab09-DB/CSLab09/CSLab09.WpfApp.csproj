@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Database\" />
+    <ProjectReference Include="..\Lab09.DAL\Lab09.DAL.csproj" />
   </ItemGroup>
 
 </Project>
